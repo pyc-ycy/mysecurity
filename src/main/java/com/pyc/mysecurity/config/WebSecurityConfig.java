@@ -7,7 +7,7 @@
 
 package com.pyc.mysecurity.config;
 
-import com.pyc.mysecurity.security.CustomUserService;
+import com.pyc.mysecurity.service.CustomUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
