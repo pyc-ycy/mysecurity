@@ -6,6 +6,8 @@
     <meta content="text/html;charset=UTF-8"/>
     <title sec:authentication="name"></title>
     <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <script th:src="@{js/bootstrap.min.js}"></script>
+    <script th:src="@{js/jquery.min.js}"></script>
     <style type="text/css">
         body{
             padding-top: 50px;
@@ -14,19 +16,90 @@
             padding: 40px 15px;
             text-align: center;
         }
+        .fakeimg{
+            height: 200px;
+            background: #aaa;
+        }
+        #login-footer{
+            right: 0;
+            position: relative;
+            /*top: 80%;*/
+            /*bottom: 1px;*/
+            background-color:#353A40;
+            width: 100%;
+            min-width: 100%;
+            color: #979CA2;
+            margin-top: 10px;
+            padding-top: 10px;
+            height: 300px;
+        }
+        #login-footer-box{
+            height: 96%;
+            padding-top: 10px;
+            display: flex;
+        }
+        #login-footer-box li{
+            margin: 5px 0;
+
+        }
+        #login-footer-box a{
+            color: #979CA2;
+        }
+        #login-footer-box a:hover{
+            color: #C2C4C5;
+        }
+        #login-footer-div1{
+            margin-left: 12%;
+            width: 25%;
+            margin-right: 40px;
+        }
+        #login-footer-div2{
+            margin-left: 5%;
+            width: 25%;
+        }
+        #login-footer-div3{
+            margin-left: 5%;
+            margin-right: 12%;
+            width: 50%;
+        }
+        #footer-footer{
+            margin: 0;
+            padding-bottom: 20px;
+            left: 50%;
+            background-color:#353a40;
+            color: #979CA2;
+            text-align: center;
+        }
+        .span_jg{
+            width: 40px;
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+<div class="jumbotron text-center" style="margin-bottom: 0;background-color: #fff">
+    <img th:src="@{/images/header.png}"/>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Spring Security Demo</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Lawyer</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a th:href="@{/}">Home</a> </li>
+                <li class="active"><a href="#">主页</a></li>
+                <li><a href="#">页面 2</a></li>
+                <li><a href="#">页面 3</a></li>
+                <li><a href="#">页面 4</a> </li>
+                <li><a href="#">页面 5</a> </li>
             </ul>
-        </div><!--/ .nav-collapse-->
+        </div>
     </div>
 </nav>
 <div class="container">
@@ -42,6 +115,63 @@
         <form th:action="@{/logout}" method="post">
             <input type="submit" class="btn btn-primary" value="logout"/>
         </form>
+    </div>
+</div>
+<div id="login-footer">
+    <div id="login-footer-box">
+        <div id="login-footer-div1">
+            <h3>
+                普罗米修信则
+            </h3>
+            <span class="span_jg"></span>
+            <ul>
+                <li style="line-height: 19px;">注重细节</li>
+                <li style="line-height: 19px;">平衡利益</li>
+                <li style="line-height: 19px;">批评与自我批评</li>
+                <li style="line-height: 19px;">感恩与贡献</li>
+            </ul>
+        </div>
+        <div id="login-footer-div2">
+            <h3>
+                服务范围
+            </h3>
+            <span class="span_jg">
+            </span>
+            <ul>
+                <li style="line-height: 19px;">金融银行法律业务</li>
+                <li style="line-height: 19px;">其他金融类业务</li>
+                <li style="line-height: 19px;">法律顾问业务</li>
+                <li style="line-height: 19px;">其他综合业务</li>
+            </ul>
+        </div>
+        <div id="login-footer-div3" style="text-align: center">
+            <h3>普罗米修律师事务所</h3>
+            <table style="color: #979CA2;">
+                <tr>
+                    <td>法人:</td>
+                    <td>杨逍</td>
+                </tr>
+                <tr>
+                    <td>地址:</td>
+                    <td>深圳市罗湖区笋岗东路1002号宝安广场B座15楼</td>
+                </tr>
+                <tr>
+                    <td>电话:</td>
+                    <td>0755-25471600</td>
+                </tr>
+                <tr>
+                    <td>传真:</td>
+                    <td>0755-82225009</td>
+                </tr>
+                <tr>
+                    <td>邮编:</td>
+                    <td>518002</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="footer-footer" style="text-align: center">
+        All Copyright &copy;2020 普罗米修律师事务所
     </div>
 </div>
 </body>

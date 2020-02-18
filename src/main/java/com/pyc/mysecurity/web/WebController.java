@@ -26,6 +26,7 @@ public class WebController {
 
     @RequestMapping("/")
     public String index(Model model){
+
         Msg msg = new Msg("Demo Title",
                 "Demo Content",
                 "additional msg, only admin can see");
