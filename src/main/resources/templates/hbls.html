@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Page for visitor</title>
+    <style>
+        .fakeimg{
+            height: 200px;
+            background: #fff;
+        }
+        p{
+            font-size: 16px;
+        }
+        h5{
+            font-size: 18px;
+            color: blue;
+        }
+        .li-color{
+            color: #8b7be9;
+        }
+        .locate{
+            width: 890px;
+            height: auto;
+        }
+        .hr1{
+            border:3px double #337ab7;
+            width: 100%;
+            color: #337ab7;
+            size: A3;
+        }
+        .hr2{
+            border: 1px dashed #337ab7;
+            width: 100%;
+            color: #337ab7;
+        }
+        .hr3{
+            border: solid 2px #337ab7;
+            width: 100%;
+            color: #337ab7;
+        }
+        .div{
+            display: block;
+        }
+        .ls_intro .nr_sm .r_detail, .ls_intro .nr_sm .r_detail span, .ls_intro .nr_sm .r_detail p{
+            float:right; width:702px;
+        }
+        .bt_nav {
+            float: left;
+            height: 35px;
+            background: #047DC6;
+            padding: 0 10px;
+        }
+        dl {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+        .bt_nav {
+            float: left;
+            background: #047DC6;
+            padding: 0 10px;
+            height: 50px;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .top20 {
+            margin-top: 20px!important;
+        }
+        dt {
+            display: block;
+        }
+        .lsxm {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        .lszc {
+            font-family: "微软雅黑";
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+        }
+        .lsnx {
+            width: 672px;
+            height: 24px;
+            padding: 10px 14px 0px 14px;
+            font-size: 14px;
+            line-height: 16px;
+            color: #ECE0C8;
+            background: #FFF9ED;
+            border: 1px solid #FEF0D3;
+            margin: 15px 0px 5px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="jumbotron text-center" style="margin-bottom: 0;background: #fff">
+    <h1>普罗米修律师事务所</h1>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/visitor/home}">Lawyer</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">和邦律师团队</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>关于普罗米修律师事务所</h2>
+            <h5>事务所Logo:</h5>
+            <div class="fakeimg">
+                <img th:src="@{/images/welcome.png}" style="height: 200px;width: 300px;"/>
+            </div>
+            <p>律所基本信息</p>
+            <ul>
+                <li class="li-color">公司全称：广东普罗米修律师事务所</li>
+                <li class="li-color">法人：杨逍</li>
+                <li class="li-color">邮编：518002</li>
+                <li class="li-color">地址：深圳市罗湖区笋岗东路1002号<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&emsp;&nbsp;&nbsp;&nbsp;宝安广场B座15楼</li>
+                <li class="li-color">电话：0755-25471600</li>
+                <li class="li-color">传真：0755-82225009</li>
+            </ul>
+            <h3>菜单</h3>
+            <p>由于当前是游客登陆，暂不提供咨询功能</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a th:href="@{/visitor/home}">主页</a></li>
+                <li class="active"><a href="#">和邦律师团队</a></li>
+                <li><a th:href="@{/login}">注册与登录</a></li>
+            </ul>
+            <hr class="hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="col-sm-8">
+            <h2>和邦律师团队</h2>
+            <hr class="hr1" size="3"/>
+            <h5>简介</h5>
+            <hr class="hr2" size="2"/>
+            <p>
+                本所和邦律师团队成立于2018年4月份，目前团队成员5名，
+                执业律师三名， 分别为彭友来律师、陈琪瑶律师、陈泽颖律师，
+                实习律师两名，分别为何海堃实习律师、文舒实习律师。
+                团队自成立以来处理近200件金融类诉讼业务，处理金额上亿，
+                成功处理拥有抵押权案件数十件、拥有首封案件上百件的财产处置，
+                拥有丰富的诉讼及执行经验。
+            </p>
+            <h5>律师介绍</h5>
+            <div class="ls_intro" style="display: block">
+                <div class="bt_nav" style="width: 100%;display: block">
+                    <h3><b>彭友来律师介绍</b></h3>
+                </div>
+                <div class="nr_sm top20 clearfix">
+                    <table style="border: 0;margin-top: 80px;margin-bottom: 50px;">
+                        <tr>
+                            <td style="float: left;width: 250px;">
+                                <img th:src="@{/images/pyl.png}">
+                            </td>
+                            <td style="align-items: center">
+                                <p>
+                                    <b>彭友来律师</b>
+                                </p>
+                                <p>专注于：公司法</p>
+                                <span class="lsnx">
+                                <i>从业年限：2年</i>
+                                 |
+                                <i>执业证号：14403201810031767</i>
+                            </span>
+                                <br>
+                                <br>
+                                <p>
+                                    彭友来律师，男，汉族，法学学士，
+                                    广东普罗米修律师事务所专职律师。彭友来律师具备专业的理论知识与实践经验，
+                                    坚持不断学习，不断提高自身专业水平，并坚持专业知识普及与输出，
+                                    经营个人微信公众号：民商法交流，其有能力为客户提供优质的法律服务。
+                                    擅长领域：公司诉讼纠纷、一般民商事纠纷、侵权纠纷、民间借贷纠纷、合同类纠纷等
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <h3>All Copyright &copy;2020 普罗米修律师事务所</h3>
+</div>
+</body>
+</html>
