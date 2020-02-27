@@ -93,22 +93,20 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
+                <li class="active"><a th:href="@{/home}">主页</a></li>
                 <li><a href="#">页面 2</a></li>
                 <li><a href="#">页面 3</a></li>
                 <li><a href="#">页面 4</a> </li>
-                <li><a th:href="@{/userInformation}">我</a> </li>
+                <li><a href="#">我</a> </li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
-    <div class="starter-template">
-        <h1>主页</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" class="btn btn-primary" value="logout"/>
-        </form>
-    </div>
+    <h1>用户信息</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" class="btn btn-primary" value="logout"/>
+    </form>
 </div>
 <div id="login-footer">
     <div id="login-footer-box">

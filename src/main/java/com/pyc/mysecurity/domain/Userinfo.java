@@ -12,26 +12,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class UserInfo {
+public class Userinfo {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;    //username
     private String sex; // user sex
-    private String add; // address
+    private String address; // address
     private String mail;    // mail
 
-    public UserInfo(){
+    public Userinfo() {
         super();
     }
-    public UserInfo(Long id, String name, String sex, String add, String mail){
+
+    public Userinfo(Long id, String name, String sex, String address, String mail) {
         super();
-        this.name=name;
-        this.sex=sex;
-        this.add=add;
-        this.mail=mail;
-        this.id=id;
+        this.name = name;
+        this.sex = sex;
+        this.address = address;
+        this.mail = mail;
+        this.id = id;
     }
 
     public void setId(Long id) {
@@ -58,12 +59,12 @@ public class UserInfo {
         return sex;
     }
 
-    public void setAdd(String add) {
-        this.add = add;
+    public void setAdd(String address) {
+        this.address = address;
     }
 
     public String getAdd() {
-        return add;
+        return address;
     }
 
     public void setMail(String mail) {

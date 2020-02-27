@@ -1,10 +1,5 @@
-insert into SYS_USER(id, username, password)
-values (1, 'pyc', 'pyc');
-insert into SYS_USER(id, username, password)
-values (2, 'ycy', 'ycy');
-
-insert into SYS_ROLE(id, name) values (1, 'ROLE_ADMIN');
-insert into SYS_ROLE(id, name) values (2, 'ROLE_USER');
-
-insert into SYS_USER_ROLES(SYS_USER_ID, ROLES_ID) values (1, 1);
-insert into SYS_USER_ROLES(SYS_USER_ID, ROLES_ID) values (2,2);
+insert into USERINFO(id, name) values(hibernate_sequence.nextval,'pyc');
+insert into USERINFO(id, name) values(hibernate_sequence.nextval,'ycy');
+insert into USERINFO(id, name) values(hibernate_sequence.nextval,'lqy');
+insert into USERINFO(id, name) values(hibernate_sequence.nextval,'try');
+insert into USERINFO(id, name) values(hibernate_sequence.nextval,'ty');
