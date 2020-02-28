@@ -8,7 +8,9 @@
 package com.pyc.mysecurity.web;
 
 import com.pyc.mysecurity.dao.UserinfoRepository;
+import com.pyc.mysecurity.domain.Userinfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,32 @@ public class UserinfoController {
     public String toUser(Model model, HttpSession session){
         SecurityContextImpl securityContext = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
         String currentUser =  ((UserDetails)securityContext.getAuthentication().getPrincipal()).getUsername();
-        model.addAttribute("currentUser", currentUser);
+        Userinfo userinfo = userInfoRepository.findByName(currentUser);
+        model.addAttribute("userinfo", userinfo);
         return "userInformation";
+    }
+
+    @RequestMapping("/updateUserinfo")
+    public String update(Model model, HttpSession session){
+        SecurityContextImpl securityContext = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+        String currentUser =  ((UserDetails)securityContext.getAuthentication().getPrincipal()).getUsername();
+        model.addAttribute("currentUser", currentUser);
+        return "updateUserinfo";
+    }
+    @RequestMapping("/saveUserinfo")
+    public String save(HttpSession session,
+                       @Param("sex")String sex,
+                       @Param("address")String address,
+                       @Param("mail")String mail,
+                       Model model){
+        SecurityContextImpl securityContext = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+        String user =  ((UserDetails)securityContext.getAuthentication().getPrincipal()).getUsername();
+        int result = userInfoRepository.update(sex, address, mail, user);
+        if(result != 0){
+            Userinfo userinfo = userInfoRepository.findByName(user);
+            model.addAttribute("userinfo", userinfo);
+            return "userInformation";
+        }
+        return "updateUserinfo";
     }
 }

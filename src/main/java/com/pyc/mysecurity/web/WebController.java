@@ -8,9 +8,11 @@
 package com.pyc.mysecurity.web;
 
 import com.pyc.mysecurity.dao.SysUserRepository;
+import com.pyc.mysecurity.dao.UserinfoRepository;
 import com.pyc.mysecurity.domain.Msg;
 import com.pyc.mysecurity.domain.SysRole;
 import com.pyc.mysecurity.domain.SysUser;
+import com.pyc.mysecurity.domain.Userinfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextImpl;
@@ -43,6 +45,9 @@ public class WebController {
     @Autowired
     SysUserRepository userRepository;
 
+    @Autowired
+    UserinfoRepository userinfoRepository;
+
     @RequestMapping("/book")
     public String book(@Param("username")String username, @Param("password")String password){
         int rs = (int) userRepository.count();
@@ -57,6 +62,10 @@ public class WebController {
         user.setUsername(username);
         user.setPassword(password);
         userRepository.save(user);
+
+        Userinfo userinfo = new Userinfo();
+        userinfo.setName(username);
+        userinfoRepository.save(userinfo);
         return "login";
     }
 
