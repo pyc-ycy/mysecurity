@@ -93,17 +93,23 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a th:href="@{/home}">主页</a></li>
+                <li><a th:href="@{/home}">主页</a></li>
                 <li><a href="#">页面 2</a></li>
                 <li><a href="#">页面 3</a></li>
                 <li><a href="#">页面 4</a> </li>
-                <li><a href="#">我</a> </li>
+                <li class="active"><a href="#">我</a> </li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
-    <h1>用户信息</h1>
+    <center>
+        <h2>用户信息</h2>
+        <form method="get">
+            <label for="username">姓名:</label><!--/*@thymesVar id="currentUser" type="java.lang.String"*/-->
+            <input type="text" name="username" id="username" th:value="${currentUser}" readonly="readonly">
+        </form>
+    </center>
     <form th:action="@{/logout}" method="post">
         <input type="submit" class="btn btn-primary" value="logout"/>
     </form>

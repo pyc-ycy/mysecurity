@@ -13,11 +13,14 @@ import com.pyc.mysecurity.domain.SysRole;
 import com.pyc.mysecurity.domain.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +28,15 @@ import java.util.List;
 public class WebController {
 
     @RequestMapping("/")
-    public String index(Model model){
+    public String index(Model model, HttpSession session){
 
         Msg msg = new Msg("Demo Title",
                 "Demo Content",
                 "additional msg, only admin can see");
         model.addAttribute("msg",msg);
+        SecurityContextImpl securityContext = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+        String currentUser =  ((UserDetails)securityContext.getAuthentication().getPrincipal()).getUsername();
+        model.addAttribute("currentUser", currentUser);
         return "home";
     }
 

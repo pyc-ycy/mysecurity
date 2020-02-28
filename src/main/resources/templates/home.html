@@ -105,6 +105,7 @@
 <div class="container">
     <div class="starter-template">
         <h1>主页</h1>
+        <span th:text="${currentUser}"></span>
         <form th:action="@{/logout}" method="post">
             <input type="submit" class="btn btn-primary" value="logout"/>
         </form>
