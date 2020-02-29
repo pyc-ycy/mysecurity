@@ -21,7 +21,8 @@ public class Userinfo {
     private String sex; // user sex
     private String address; // address
     private String mail;    // mail
-
+    private Long status;
+    private String code;
     public Userinfo() {
         super();
     }
@@ -73,5 +74,34 @@ public class Userinfo {
 
     public String getMail() {
         return mail;
+    }
+
+    public void setStatus(Long status) {
+        this.status = status;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String toString() {
+        return "Userinfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", address='" + address + '\'' +
+                ", mail='" + mail + '\'' +
+                ", status=" + status +
+                ", code='" + code + '\'' +
+                '}';
     }
 }

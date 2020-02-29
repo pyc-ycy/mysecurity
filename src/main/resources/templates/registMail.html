@@ -94,38 +94,23 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/home}">主页</a></li>
-                <li><a th:href="@{/lawyerInfo}">和邦律师团队</a></li>
-                <li><a href="#">页面 3</a></li>
-                <li><a href="#">页面 4</a> </li>
-                <li class="active"><a href="#">我</a> </li>
+                <li class="active"><a href="#">邮箱激活</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
     <center>
-        <h2>用户信息</h2>
-        <form>
-        <label for="username">姓名:</label><!--/*@thymesVar id="currentUser" type="java.lang.String"*/-->
-        <input type="text" name="username" id="username" th:value="${userinfo.name}" readonly="readonly">
-        <br>
-        <label for="sex">性别：</label>
-        <input type="text" name="sex" id="sex" th:value="${userinfo.sex}" readonly="readonly">
-        <br>
-        <label for="address">地址：</label>
-        <input type="text" name="address" id="address" th:value="${userinfo.add}" readonly="readonly">
-        <br>
-        <label for="mail">邮箱：</label>
-        <input type="email" name="mail" id="mail" th:value="${userinfo.mail}" readonly="readonly">
-        <input type="button" value="激活" onclick="window.location.href='/toRegistMail'">
-        <br>
-        <input type="button" value="修改"
-               onclick="window.location.href='/updateUserinfo'" style="width: 100px">
-    </form>
+        <form method="post" action="/registMail">
+            <label for="username">用户名：</label>
+            <input type="text" name="username" id="username" th:value="${userinfo.name}" readonly="readonly"><br>
+            <label for="mail">邮箱：</label>
+            <input type="text" id="mail" name="mail"th:value="${userinfo.mail}" readonly="readonly">
+            <br><label for="code">授权码：</label>
+            <input type="text" name="code" id="code" placeholder="请输入你的邮箱授权码">
+            <br><input type="submit" value="确认" width="100px">
+        </form>
     </center>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" class="btn btn-primary" value="logout"/>
-    </form>
 </div>
 <div id="login-footer">
     <div id="login-footer-box">

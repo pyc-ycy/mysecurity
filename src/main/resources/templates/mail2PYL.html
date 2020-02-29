@@ -94,38 +94,22 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/home}">主页</a></li>
-                <li><a th:href="@{/lawyerInfo}">和邦律师团队</a></li>
-                <li><a href="#">页面 3</a></li>
-                <li><a href="#">页面 4</a> </li>
-                <li class="active"><a href="#">我</a> </li>
+                <li class="active"><a href="#">邮件咨询</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
     <center>
-        <h2>用户信息</h2>
-        <form>
-        <label for="username">姓名:</label><!--/*@thymesVar id="currentUser" type="java.lang.String"*/-->
-        <input type="text" name="username" id="username" th:value="${userinfo.name}" readonly="readonly">
-        <br>
-        <label for="sex">性别：</label>
-        <input type="text" name="sex" id="sex" th:value="${userinfo.sex}" readonly="readonly">
-        <br>
-        <label for="address">地址：</label>
-        <input type="text" name="address" id="address" th:value="${userinfo.add}" readonly="readonly">
-        <br>
-        <label for="mail">邮箱：</label>
-        <input type="email" name="mail" id="mail" th:value="${userinfo.mail}" readonly="readonly">
-        <input type="button" value="激活" onclick="window.location.href='/toRegistMail'">
-        <br>
-        <input type="button" value="修改"
-               onclick="window.location.href='/updateUserinfo'" style="width: 100px">
-    </form>
+        <img th:src="@{/images/pyl.png}" alt="图片"><h2>彭友来律师</h2>
+        <form method="post" action="/sendMail2PYL">
+            <label for="title">主题：</label><input type="text" name="title" id="title" placeholder="邮件主题"><br>
+            <label for="context">内容：</label>
+            <br>
+            <textarea name="context" id="context" cols="20" rows="400" style="width: 1000px;height: 500px">请输入邮件内容</textarea>
+            <br><input type="submit" value="发送" width="100px">
+        </form>
     </center>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" class="btn btn-primary" value="logout"/>
-    </form>
 </div>
 <div id="login-footer">
     <div id="login-footer-box">
