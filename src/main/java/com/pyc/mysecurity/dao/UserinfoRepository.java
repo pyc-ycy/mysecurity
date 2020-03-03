@@ -25,4 +25,9 @@ public interface UserinfoRepository extends JpaRepository<Userinfo, Long> {
     @Transactional
     @Query("update Userinfo u set u.code=?1,u.status=?2 where u.name=?3 and u.mail=?4")
     int updateCode(String code, Long status,String name, String mail);
+
+    @Modifying
+    @Transactional
+    @Query("update Userinfo u set u.touser=?1 where u.name=?2")
+    int updateTOUSER(String touser,String username);
 }

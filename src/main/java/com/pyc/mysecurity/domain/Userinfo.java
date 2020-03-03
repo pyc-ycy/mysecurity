@@ -23,6 +23,7 @@ public class Userinfo {
     private String mail;    // mail
     private Long status;
     private String code;
+    private String touser;
     public Userinfo() {
         super();
     }
@@ -92,16 +93,11 @@ public class Userinfo {
         return code;
     }
 
-    @Override
-    public String toString() {
-        return "Userinfo{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", address='" + address + '\'' +
-                ", mail='" + mail + '\'' +
-                ", status=" + status +
-                ", code='" + code + '\'' +
-                '}';
+    public void setTouser(String touser) {
+        this.touser = touser;
+    }
+
+    public String getTouser() {
+        return touser;
     }
 }
